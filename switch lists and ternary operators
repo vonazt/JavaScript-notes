@@ -1,0 +1,26 @@
+//SWITCH LIST
+
+switch (variable) {
+    case: true;
+    console.log('This the place');
+    break;
+    
+    case: false;
+    console.log('This is not the place');
+    break;
+    
+    default:
+    console.log('This is somewhere else entirely);
+    break;
+}
+
+//TENARY OPERATOR
+
+variable ? console.log('This is true) : console.log('This is false);
+
+let food = 'cake';
+
+food === 'cake' ? console.log('This is cake) : console.log('The cake is a lie');
+
+!variable ? console.log('This is false) : console.log('This is true);
+
