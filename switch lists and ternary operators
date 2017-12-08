@@ -1,11 +1,11 @@
 //SWITCH LIST
 
 switch (variable) {
-    case: true;
+    case true:
     console.log('This the place');
     break;
     
-    case: false;
+    case false:
     console.log('This is not the place');
     break;
     
