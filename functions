@@ -1,0 +1,47 @@
+//JAVASCRIPT FUNCTIONS IN ALL THEIR VARIOUS GUISES
+
+//1. FUNCTION DECLARATION
+
+function variableName (parameter) {
+    //code to be executed
+    //return code
+}
+//N.B NO SEMI-COLON AT THE END
+
+variableName(argument);
+//CALLS THE FUNCTION
+
+
+//2a. ARROW SYNTAX REFACTED
+
+const volumeOfSphere = diameter =>
+  (1/6) * Math.PI * diameter * diameter * diameter;
+
+//NOTES ON ARROW SYNTAX: 
+1. Functions that take a single parameter should not use parentheses. 
+The code will still work, but it's better practice to omit the parentheses around single parameters. 
+However, if a function takes zero or multiple parameters, parentheses are required.
+2. A function composed of a sole single-line block is automatically returned. 
+The contents of the block should immediately follow the arrow => and the return keyword can be removed. 
+This is referred to as implicit return.
+3. A function composed of a sole single-line block does not need brackets
+
+//2b. ARROW SYNTAX - WITH EXTRAS
+
+const variableName = (parameterOne, parameterTwo) => {
+    //code to be executed
+    //return code
+};
+
+variableName(argument); 
+//CALLS THE FUNCTION
+
+//3. FUNCTION EXPRESSIONS 
+
+const square = function (number) {
+  return number * number;
+};
+
+square(number);
+
+
