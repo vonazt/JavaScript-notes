@@ -1,0 +1,65 @@
+//1. HOW TO WRITE A BASIC LOOP:
+
+const myArray = ['Items', 'In', 'An Array']
+
+for (let myArrayIndex = 0; myArrayIndex < myArray.length; myArrayIndex ++) {
+    console.log(myArray[myArrayIndex]);
+};
+
+
+//LOOPS EFFECTIVELY CREATE INDEX NUMBERS FOR ACCESSING ELEMENTS OF AN ARRAY
+
+//The START CONDITION is let myArrayIndex = 0;
+//The STOP CONDITION is myArrayIndex < myArray.length;
+//The ITERATOR is myArrayIndex ++, which increases myArrayIndex by 1 each loop
+//REMEMBER TO SEPARATE USING ;
+
+
+
+
+//2. HOW TO WRITE A LOOP THAT WORKS BACKWARDS THROUGH AN ARRAY
+
+const myArray = ['Items', 'In', 'An Array']
+
+for (let myArrayIndex = myArray.length - 1; myArrayIndex >= 0; myArrayIndex --) {
+    console.log(myArray[myArrayIndex]);
+};
+    
+//LENGTH OF myArray = 3, BUT FINAL INDEX IS [2], SO STARTING POSITION MUST BE .length - 1. [Returns 'undefined' otherwise]
+
+
+
+
+//3. HOW TO LOOP THROUGH TWO LISTS TO FIND THINGS IN COMMON 
+
+const myPlaces = ['Bali', 'Ibiza', 'Nice'];
+const friendPlaces = ['Paris', 'Bali', 'Ghana'];
+
+for (let myPlacesIndex = 0; myPlacesIndex < myPlaces.length; myPlacesIndex ++) {
+  for (let friendPlacesIndex = 0; friendPlacesIndex < friendPlaces.length; friendPlacesIndex ++) {
+    if (myPlaces[myPlacesIndex] === friendPlaces[friendPlacesIndex]) {
+      console.log(myPlaces[myPlacesIndex]);
+    };
+  };
+};
+
+//This iterates one list within another. Looping through friendPlaces happens each time one element is looped in myPlaces, 
+so when 'Bali' is looped, 'Paris', 'Bali' and 'Ghana' are iterated as well. In this way, you can compare myPlacesIndex with
+friendPlacesIndex to see if any are the same
+
+
+
+
+//4. WHILE LOOPS
+
+let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+
+let currentCard = 'Heart';
+
+while (currentCard !== 'Spade') {
+  console.log(currentCard);
+  currentCard = cards[Math.floor(Math.random() * 4)];
+}
+
+console.log(currentCard);
+
