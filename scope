@@ -1,0 +1,42 @@
+/* BLOCK SCOPE: A block refers to the code within {} - functions, loops, if statements, etc. 
+Block scope means that a variable is only accesible within that block of code. 
+EXAMPLE: */
+
+const colorOfSky = () => {
+  let color = 'blue'; 
+  console.log(color); // blue 
+};
+
+colorOfSky(); // blue 
+console.log(color); // undefined
+
+//WITH IF STATEMENT: 
+
+const colorOfSky = () => {
+  const dusk = true;
+  let color = 'blue'; 
+  if (dusk) {
+    let color = 'pink';
+    console.log(color); // pink
+  }
+  console.log(color); // blue 
+};
+
+colorOfSky(); // blue
+console.log(color); // undefined
+
+//N.B: Within the if (dusk) {} statement, color is set as a new variable with let color = ...
+
+
+//FOR LOOPS: 
+
+const cloudCount = () => {
+  let i = 2;
+  console.log(i); // 2
+  for (let i = 0; i < 10; i++) {
+    console.log(i); // All numbers from 0 to 9
+  }
+};
+
+cloudCount();
+console.log(i); // undefined
