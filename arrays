@@ -1,0 +1,76 @@
+//1. HOW TO ACCESS AN ITEM'S INDEX IN AN ARRAY
+
+let newYearsResolutions = ['Code', 'Run', 'Drink'];
+
+const listItem = newYearsResolutions[0]; //accesses 'Code'
+
+console.log(listItem); //prints 'Code'
+console.log(newYearsResolutions[2]); //prints 'Drink'
+
+
+
+//2. HOW TO CHANGE AN ELEMEMT IN AN ARRAY USING ITS INDEX
+
+newYearsResolutions[1] = 'Learn a new language'; //newYearsResolutions = ['Code', 'Learn a new language', 'Drink']
+
+//THIS REPLACES THE ITEM AT newYearsResolutions[1] WITH A NEW VALUE
+
+
+
+//3. USING .push TO ADD ITEMS TO THE END OF AN ARRY
+
+//.push adds items to the end of an array:
+
+newYearsResolutions.push('Learn to fly', 'Read more'); 
+// [ 'Code', 'Learn a new language', 'Drink', 'Learn to fly', 'Read more' ]
+
+
+
+//4. .pop() REMOVES THE LAST ELEMENT OF AN ARRAY
+
+newYearsResolutions.pop(); // [ 'Code', 'Learn a new language', 'Drink', 'Learn to fly' ]
+
+
+
+//5. ARRAY METHODS: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+
+
+
+//6 .shift() REMOVES THE FIRST ITEM FROM AN ARRAY:
+
+newYearsResolutions.shift(); // [ 'Learn a new language', 'Drink', 'Learn to fly' ]
+
+
+
+
+//7. .unshift() ADDS AN ITEM TO THE BEGINNING OF AN ARRAY
+
+newYearsResolutions.unshift('Drive a car'); // [ 'Drive a car', 'Learn a new language', 'Drink', 'Learn to fly' ]
+
+
+
+
+//8. .slice() TAKES A SECTION OF AN ARRAY - N.B. THE FIRST INDEX NUMBER IS INCLUSIVE, THE LAST EXCLUSIVE:
+
+let groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+
+console.log(groceryList.slice(1, 4)); //prints ['bananas', 'coffee beans', 'brown rice']
+
+
+//9. .splice() REMOVES STRINGS AND REPLACES THEM:
+
+string.splice(indexToStart, numberOfIndices, 'replacementString')
+
+let message = ['help', 'I', 'need', 'somebody', 'to', 'love', 'me']
+
+message.splice(1, 3, 'Petia') 
+// new message = ['help', 'Petia', 'to', 'love', 'me']
+
+
+
+//9. .join JOINS ALL THE ELEMENTS OF AN ARRAY INTO A STRING:
+
+message.join('') // prints [help Petia to love me]
+
+
