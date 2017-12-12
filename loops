@@ -63,3 +63,34 @@ while (currentCard !== 'Spade') {
 
 console.log(currentCard);
 
+
+//5. HOW TO WRITE A LOOP THAT CENSORS/CHECKS A STRING AGAINST A PREDETERMINED ARRAY
+
+let input = 'This is a sentence, I made it myself and it is good.';
+
+let vowels = ['A','E','I','U','O','a','e','i','o','u']; 
+//This ARRAY should be all the items you're checking the input string against - 
+note they are all individual elements in the array
+
+let resultArray = [];
+
+for (let inputIndex = 0; inputIndex < input.length; inputIndex++) {
+  for (let vowelsIndex = 0; vowelsIndex < vowels.length; vowelsIndex++) { 
+  
+  //iterate a second time so that each letter in input is compared with all the letters in vowels
+    
+    if (input[inputIndex] === vowels[vowelsIndex]) {
+      resultArray.push(input[inputIndex]); 
+      //This is the code for iterating through an input, checking it against an array, 
+      and then repopulating a new array with the chosen letters.
+    }
+  }
+   if (input[inputIndex] === 'e' || input[inputIndex] === 'u') {
+    resultArray.push(input[inputIndex]); 
+    //This is just an extra part to double the length of vowels for the 'whale speak' 
+    - n.b. that it's in the original 'for' loop, as it should only act once on each input 'e' and 'u'
+  }
+}
+
+console.log(resultArray.join('').toUpperCase());
+
