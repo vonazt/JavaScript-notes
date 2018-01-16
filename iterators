@@ -1,0 +1,133 @@
+//Array methods: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+//Iteration methods: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods
+
+1. // .forEach
+  // .forEach executes the same on each element of an array
+  
+  let records = ['Station to Station', 'Low', 'Heroes', 'Lodger'];
+  
+  records.forEach(function(record) {
+    console.log(record + ' is an album by David Bowie')
+  });
+  
+  //This is the syntax for iterating through an array and printing each record on a separate line.
+  
+  //FOR EACH ARROW SYNTAX
+  
+  records.forEach(record => console.log(record + ' is an album by David Bowie'));
+  
+  // .forEach returns 'undefined' and does not change the array
+  
+2. // .map
+  // .map returns a new array that has been modified by the content of the code in the block
+  // Remember to create a new variable at the start of the function call in order to create a new array
+
+
+   let animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+
+  let secretMessage = animals.map(function(animal) {
+    return animal[0];
+  });
+  
+  console.log(secretMessage.join(''));
+  
+  //This function calls .map on the array animals that takes the single parameter animal. It creates a new array, secretMessage,
+  and populates it with the first character of each string in the animals array. (returns 'HelloWorld').
+  
+  // ANOTHER EXAMPLE:
+  
+  let bigNumbers = [100, 200, 300, 400, 500];
+  
+  let smallNumbers = bigNumbers.map(function(number) {
+    return number / 100;
+  });
+  
+  //Uses .map to divide all the numbers in the bigNumbers array by 100 and saves the returned values in a new array called 
+  smallNumbers
+  
+  //ARROW SYNTAX FOR .map
+  
+  let secretMessage = animals.map(animal => animal[0]);
+  
+  let smallNumbers = bigNumbers.map(number => number / 100);
+  
+3. // .filter
+  // .filter returns a new array - it returns certain elements from the original array that evaluate to truthy based on the
+  conditions in the code block
+  
+  let randomNumbers = [375, 200, 3.14, 7, 13, 852];
+
+  let smallNumbers = randomNumbers.filter(function (number) {
+    return number < 250;
+  });
+  
+  //Creates a new array, smallNumbers, and populates it with all numbers from the randomNumbers array that are less than 250
+  
+  //ARROW SYNTAX
+  
+  let smallNumbers = randomNumbers.filter(number => number < 250);
+  
+  let favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
+
+  let longFavoriteWords = favoriteWords.filter(word => word.length > 7);
+  
+4. //GENERAL ARRAY METHODS
+
+Array.prototype.entries()
+Returns a new Array Iterator object that contains the key/value pairs for each index in the array.
+
+Array.prototype.every()
+Returns true if every element in this array satisfies the provided testing function.
+
+Array.prototype.filter()
+Creates a new array with all of the elements of this array for which the provided filtering function returns true.
+
+Array.prototype.find()
+Returns the found value in the array, if an element in the array satisfies the provided testing function or undefined if not found.
+
+Array.prototype.findIndex()
+Returns the found index in the array, if an element in the array satisfies the provided testing function or -1 if not found.
+
+Array.prototype.forEach()
+Calls a function for each element in the array.
+
+Array.prototype.keys()
+Returns a new Array Iterator that contains the keys for each index in the array.
+
+Array.prototype.map()
+Creates a new array with the results of calling a provided function on every element in this array.
+
+Array.prototype.reduce()
+Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
+
+Array.prototype.reduceRight()
+Apply a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.
+
+Array.prototype.some()
+Returns true if at least one element in this array satisfies the provided testing function.
+
+Array.prototype.values()
+Returns a new Array Iterator object that contains the values for each index in the array.
+
+Array.prototype[@@iterator]()
+Returns a new Array Iterator object that contains the values for each index in the array.
+
+5. //SOME EXAMPLES
+
+let words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+console.log(words.some(function(word) {
+  return word.length < 6;
+}));
+
+//returns 'true' as some words in the array are greater than 6 characters in length
+
+let interestingWords = words.filter(word => word.length > 5);
+
+//creates a new array, interestingWords, that contains all words with more than 5 characters
+
+console.log(interestingWords.every(word => word.length > 5));
+
+//returns 'true' if every word in interestingWords array is greater than 5 characters in length
+
+
