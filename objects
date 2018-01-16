@@ -1,0 +1,159 @@
+//Objects are containers that can store functions and data.
+//Objects are created with key-value pairs. 
+
+let person = {
+  name: 'Richard',
+  age: 31
+};
+
+//Create the object between {}
+//name is a key
+//separate keys from values with :
+//key-value pairs are separated with ,
+
+//USING DOT NOTATION TO ACCESS PROPERTIES WITHIN AN OBJECT
+
+console.log(person.name); //prints 'Richard'
+console.log(person.age); // prints '31'
+
+//USING BRACKET NOTATION TO ACCESS A KEY'S VALUE 
+
+console.log(person['name']);
+console.log(person['age']);
+
+//One advantage of bracket notation over dot is that you can use variables inside the brackets to select the key of an object.
+//For example, you could put multiple items in an object and choose which one is selected. 
+
+let person = {
+  name: 'Richard',
+  age: 31,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM'
+};
+
+const day = 'Tuesday';
+let alarm;
+
+if(day === 'Saturday' || day === 'Sunday') {
+  alarm = 'weekendAlarm';
+} else {
+  alarm = 'weekAlarm';
+}
+
+console.log(person['name']);
+console.log(person['age']);
+console.log(person[alarm]); 
+// JavaScript looks at the alarm variable which has been set by the if/else statement, referring
+//to the var 'day'. Note that alarm is set using '' around 'weekendAlarm' and 'weekAlarm'. Calling 
+//console.log(person[alarm]); 'alarm' is not a key in the person object, but because I've used bracket notation, it looks at
+//at the 'alarm' variable's value and prints 'Alarm set to 7AM'
+
+2. //ADDING PROPERTIES TO AN OBJECT
+  //using dot notation:
+  
+  person.hobbies = ['Coding', 'Reading'];
+  
+  //using bracket notation
+  
+  person['hobbies'] = ['Coding', 'Reading'];
+  
+3. //EDITING PROPERTIES OF AN OBJECT
+
+  person.hobbies = ['Coding'];
+
+4. //METHODS
+//When objects have key function pairs, they are called methods.
+//The syntax is (SEE BELOW FOR ES6 SYNTAX):
+  
+  nameOfFunction: (parameter) => {
+    //code to execute;
+  }
+
+let person = {
+  name: 'Richard',
+  age: 31,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM',
+  sayHello: () => {
+    return 'Hello, there!'; 
+  }
+};
+
+console.log(person.sayHello()); //prints 'Hello, there!'
+
+//ES6 SYNTAX <-- USE THIS ONE
+
+function(parameter) {
+  //code to execute
+}
+
+let person = {
+  name: 'Richard',
+  age: 31,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM',
+  sayHello() {
+    return 'Hello, there!';
+  },
+  sayGoodbye() {
+    return 'Goodbye!';
+  }
+};
+
+5. //THE this KEYWORD
+//The 'this' keyword is used to access properties inside of the same object and avoid scope errors
+
+let person = {
+  name: 'Richard',
+  age: 31,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM',
+  sayHello() {
+    return `Hello, my name is ${this.name}`;
+  },
+  
+ console.log(person.sayHello()); // prints 'Hello, my name is Richard'
+ 
+ //this MAKES OBJECTS MORE FLEXIBLE BECAUSE OTHER OBJECTS CAN ALSO CALL this:
+ 
+ const friend = {
+  name: 'Bruce'
+}
+
+friend.sayHello = person.sayHello;
+
+console.log(friend.sayHello()); //prints 'Hello, my name is Bruce'
+
+6. //GETTERS AND SETTERS
+  //Getter and setter methods get and set the properties of an object
+  //Advantages:
+  //1. You can check if new data is valid before setting a property
+  //2. You can perform an action on the data while getting or setting a property
+  //3. You can control which properties can be set and retrieved
+  
+  let person = {
+    _name: 'Lu Xun', //prepend properties with _ if they are not to be modified directly by other code
+    _age: 137, //prepend all properties with _ and create setters for all attributes to be accessed later
+  
+    set age(newAge) {
+    if(typeof newAge === 'number') {
+      this._age = newAge;
+    } else {
+      return 'Invalid input';
+    }
+  }
+};
+  //This is a setter for the _age property. It checks whether the new input, newAge, is a number - if it is, it sets _age
+  //to newAge. Otherwise it returns 'Invalid input'. 
+  
+  person.age = 39; //sets _age to 39
+  
+  //GETTERS ARE USED TO GET THE PROPERTY VALUES INSIDE OF AN OBJECT
+
+   get age() {
+    console.log(`${this._name} is ${this._age} years old.`);
+    return this._age; //remember to return property
+     }
+    };
+
+    console.log(person.age); //Prints 'Lu Xun is 39 years old.'
