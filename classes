@@ -1,0 +1,143 @@
+//Example of a class. N.B. Capitalise and CamelCase class names:
+
+class Surgeon {
+  constructor(name, department) {
+    this._name = name;
+    this._department = department;
+  }
+}
+
+/* JS will invoke the constructor method every time we create a new instance of our class 'Surgeon'
+this refers to an instance of that class. So we use this to set the value of the Surgeon instance's name and 
+department properties to their arguments */
+
+//INSTANCES.
+//An instance is an object that contains the property names and methods of a class, but with unique property values
+
+const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+
+/* We create a new variable named surgeonCurry that will contain an instance of class Surgeon
+The 'new' keyword calls the constructor() method, runs the code inside of it, then returns a new instance
+Passing 'Curry' and 'Cardiovascular' strings to the 'Surgeon' constructor, which sets the name and department
+properties to their corresponding values */
+
+//METHODS 
+//N.B. Class method and getter syntax is the same as for objects EXCEPT DO NOT SEPARATE METHODS WITH COMMAS
+
+class Surgeon {
+  constructor(name, department) {
+    this._name = name;
+    this._department = department;
+    this._remainingVacationDays = 20; // all instances of this class will have 20 remainingVacationDays
+  }
+  
+  get name() {
+    return this._name;
+  } 
+  
+  //standard syntax for getting class properties
+  
+  get department() {
+    return this._department;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff; //note use of keyword 'this'
+  }
+}
+
+//METHOD CALLS
+//done with dot notation
+
+console.log(surgeonCurry.name); //prints 'Curry'
+surgeonCurry.takeVacationDays(3); //calls the takeVacationDays method
+console.log(surgeonCurry.remainingVacationDays); //prints '17' to the console
+
+//INHERITANCE 
+//Creating parent classes with common properties that child classes can inherit from to save on code
+
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  //This creates the parent class HospitalEmployee from which classes Doctor and Nurse will inherit properties
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee { //SYNTAX FOR INHERITANCE
+  constructor(name, certifications) {
+    super(name); //SUPER MUST COME BEFORE 1ST USE OF 'this' - 'super' calls the constructor of the parent class
+    this._certifications = certifications; //a unique property for this class
+  }
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma', 'Pediatrics']);
+
+//ALL METHODS AND GETTERS ARE INHERITED FROM PARENT CLASS
+
+nurseOlynyk.takeVacationDays(5); //calls the takeVacationDays method, inherited from HospitalEmployee class
+console.log(nurseOlynyk.remainingVacationDays); //prints '15' to the console
+
+//FURTHER METHODS
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  }
+  
+  get certifications() {
+    return this._certifications;
+  }
+  
+  addCertification(newCertification) {
+    this._certifications.push(newCertification);
+  }
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+
+nurseOlynyk.addCertification('Genetics'); //adds 'Genetics' to the certifications array
+console.log(nurseOlynyk.certifications); //prints [ 'Trauma', 'Pediatrics', 'Genetics' ]
+
+//STATIC METHODS
+//Static methods are those that are available only to the class, not individual instances
+
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  static generatePassword() {
+    return Math.floor(Math.random() *10000);
+  } 
+  //SYNTAX FOR CREATING STATIC METHOD
+}
+
+/* Because of the 'static' keyword, it can only be accessed by appending it to the HospitalEmployee class:
+
+console.log(HospitalEmployee.generatePassword()); //returns a number between 0 and 10,000
+
+console.log(Nurse.generatePassword()); //this would return an error message - cannot call static methods on instances
+
+
